@@ -26,7 +26,7 @@ const submit = () => {
             }),}
 
 
-                    const reponse = await fetch("/apis/login", options);
+                    const reponse = await fetch("/apis.ccbp.in/login", options);
                     const data= await reponse.json()
                     console.log(data);
                     Cookies.set("jwt-token", data.jwt_token)
