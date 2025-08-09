@@ -26,7 +26,7 @@ const submit = () => {
             }),}
 
 
-                    const reponse = await fetch("http://localhost:3005/login", options);
+                    const reponse = await fetch("/apis/login", options);
                     const data= await reponse.json()
                     console.log(data);
                     
