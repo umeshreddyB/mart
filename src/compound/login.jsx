@@ -26,11 +26,16 @@ const submit = () => {
             }),}
 
 
-                    const reponse = await fetch("/apis/login", options);
+                    const reponse = await fetch("http://localhost:3005/login", options);
                     const data= await reponse.json()
                     console.log(data);
+                    
+                    if(data.jwt_token === undefined){
+                        setResult('Invalid username or password');
+                        return;
+                    }
                     Cookies.set("jwt-token", data.jwt_token)
-                    return navigate('/home', {replace: true}) ;
+                    return navigate('/home', {replace: true}) 
                 }
                 catch (er){
                     console.error("Error fetching user details:", er);

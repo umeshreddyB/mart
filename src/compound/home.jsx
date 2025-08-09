@@ -2,53 +2,58 @@ import { useState, useEffect } from "react";
 import Categories from "./categories";
 import Products from "./Products";
 import Navbar from "./Navbar";
-import Cookies from 'js-cookie';
 import { Link, Navigate } from "react-router-dom";
 import { useCart } from "./CartContext";
 
 function Home() {
-     const jwtToken = Cookies.get('jwt-token');
-    if (jwtToken === undefined) {
-        return <Navigate to="/" replace />;
-    }
-    const [prodcts, setProducts] = useState([]);
+    const [products, setProducts] = useState([]);
     const [isLoading, setLoading] = useState(false);
     const [selectedCategory, setSelectedCategory] = useState("All");
     const [filteredProducts, setFilteredProducts] = useState([]);
     const {cartItems}=useCart()
-    const callBack = (category) => {
-        if(category === "All"){
-            setFilteredProducts(prodcts);
-        }
-        else{
-            const filtered = prodcts.filter(each => each.name === category);
-            setFilteredProducts(filtered);
-        }
-    }
+    
 
 
     useEffect(() => {
         const getdata = async () => {
             setLoading(true);
-            const reponse = await fetch("https://apis2.ccbp.in/nxt-mart/category-list-details");
-            const data = await reponse.json();
-            setProducts(data.categories);
-            setFilteredProducts(data.categories);
-            setLoading(false);
+            try{
+                const reponse = await fetch("https://apis2.ccbp.in/nxt-mart/category-list-details");
+                const data = await reponse.json();
+                setProducts(data.categories);
+                setFilteredProducts(data.categories);
+                setLoading(false);
+            }
+            catch(error) {
+                console.error("Error fetching data:", error);
+                setFilteredProducts([])
+                setProducts([])
+                setLoading(false);
+            }
         };
         getdata();
     }, []);
 
+
+    const callBack = (category) => {
+        if(category === "All"){
+            setFilteredProducts(products);
+        }
+        else{
+            const filtered = products.filter(each => each.name === category);
+            setFilteredProducts(filtered);
+        }
+    }
     
     return (
         
         <div className="m-0">
             <Navbar />
             <div className="p-5 pt-20 min-h-screen flex gap-5 bg-gray-50 ">
-                <div className="max-h-[90vh] overflow-y-auto">
-                    <Categories props={prodcts} callBack={callBack}/>
+                <div className="">
+                    <Categories props={products} callBack={callBack}/>
                 </div>
-                <div className="pt-6 flex-1 flex flex-col gap-8 max-h-[90vh] overflow-y-auto">
+                <div className="pt-6 flex-1 flex flex-col gap-8">
                     {isLoading ? (
                         <div className="flex justify-center items-center h-full text-lg text-gray-500">Loading...</div>
                     ) : (filteredProducts.map(each => <Products pros={each} key={each.name} />)
