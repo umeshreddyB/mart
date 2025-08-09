@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import Categories from "./categories";
-import Products from "./Products";
-import Navbar from "./Navbar";
+import Categories from "../compound/categories";
+import Products from "../compound/Products";
+import Navbar from "../compound/Navbar";
 import { Link, Navigate } from "react-router-dom";
-import { useCart } from "./CartContext";
+import { useCart } from "../contexts/CartContext";
 
 function Home() {
     const [products, setProducts] = useState([]);

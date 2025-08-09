@@ -35,7 +35,7 @@ const submit = () => {
                         return;
                     }
                     Cookies.set("jwt-token", data.jwt_token)
-                    return navigate('/home', {replace: true}) 
+                    return navigate('/', {replace: true}) 
                 }
                 catch (er){
                     console.error("Error fetching user details:", er);

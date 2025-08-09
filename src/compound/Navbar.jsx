@@ -18,7 +18,7 @@ function Navbar() {
             <div className="flex items-center gap-6">
                 <Link to="/home" className={pathname=="/" ? ("bg-white text-green-500 px-2 py-1 border-none rounded font-medium"):("text-white")} >Home</Link>
                 <Link to="/cart" className={pathname=="/cart" ? ("bg-white text-green-500 px-2 py-1 border-none rounded font-medium"):("text-white")}>Cart</Link>
-                { user===undefined ? (<button className="hover:font-bold text-white" onClick={Logout}>Login</button>):(<button className="hover:font-bold text-white" onClick={Logout}>Logout</button>)}
+                { user===undefined ? (<Link to="/login" className="hover:font-bold text-white">Login</Link>):(<button className="hover:font-bold text-white" onClick={Logout}>Logout</button>)}
                 
             </div>
         </div>

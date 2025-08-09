@@ -1,5 +1,5 @@
-import Navbar from './Navbar';
-import { useCart } from "./CartContext";
+import Navbar from '../compound/Navbar';
+import { useCart } from "../contexts/CartContext";
 import {Link} from 'react-router-dom';
 
 
@@ -18,7 +18,7 @@ function Cart() {
             {isEmpty ? (
                 <div className='flex flex-col items-center justify-center gap-4 min-h-screen'>
                   <img className="h-80 w-80" alt="empty cart" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZSZiic8VHntIKjEIdImHrRIkEB13RN-Qbkg&s" />
-                <Link to="/home" className='bg-green-500 px-5 py-3 border rounded-md text-white'> Browse Products </Link>
+                <Link to="/" className='bg-green-500 px-5 py-3 border rounded-md text-white'> Browse Products </Link>
                 </div>
             ) : (
               <div className='p-5 min-h-screen flex flex-col gap-5 bg-gray-50 overflow-y-auto'>

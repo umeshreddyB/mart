@@ -1,9 +1,9 @@
-import Login from './compound/login'
+import Login from './pages/login'
 import './App.css'
 import { Route,Routes } from 'react-router-dom'
-import Home from './compound/home'
-import Cart from './compound/cart'
-import { CartProvider } from './compound/CartContext';
+import Home from './pages/home'
+import Cart from './pages/cart'
+import { CartProvider } from './contexts/CartContext';
 
 
 function App() {
