@@ -1,4 +1,4 @@
-import Navbar from '../compound/Navbar';
+
 import { useCart } from "../contexts/CartContext";
 import {Link} from 'react-router-dom';
 
@@ -11,7 +11,7 @@ function Cart() {
   return (
     <>
     <div>
-        <Navbar />
+        
 
           <div className='pt-20'>
           

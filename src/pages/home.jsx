@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import Categories from "../compound/categories";
 import Products from "../compound/Products";
-import Navbar from "../compound/Navbar";
 import { Link, Navigate } from "react-router-dom";
 import { useCart } from "../contexts/CartContext";
 
@@ -48,7 +47,6 @@ function Home() {
     return (
         
         <div className="m-0">
-            <Navbar />
             <div className="p-5 pt-20 min-h-screen flex gap-5 bg-gray-50 ">
                 <div className="">
                     <Categories props={products} callBack={callBack}/>

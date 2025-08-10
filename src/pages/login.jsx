@@ -50,7 +50,7 @@ const submit = () => {
 
 
     return (
-        <div className="flex items-center justify-center min-h-screen bg-gray-100">
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-start justify-center pt-20 z-50">
                 <div className="bg-white shadow-lg p-6 rounded-lg flex flex-col items-center gap-6 ">
                     <div>
                         <img alt='logo' className='h-15' src="https://img.icons8.com/fluent-systems-regular/512w/40C057/shopping-cart.png" />
