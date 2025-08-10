@@ -11,10 +11,10 @@ function Products({ pros }) {
                     return (
                         <div
                             key={each.id}
-                            className="flex flex-col w-[200px] border-green-400 rounded-lg p-4 bg-white shadow hover:shadow-xl transition"
+                            className="flex flex-col w-[250px] border-green-400 rounded-lg p-4 bg-white shadow hover:shadow-xl transition"
                         >
                             <img
-                                className="h-20 w-full object-cover border-none rounded-lg mb-2"
+                                className="h-25 w-full object-cover border-none rounded-lg mb-2"
                                 alt={each.name}
                                 src={each.image}
                             />

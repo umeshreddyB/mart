@@ -14,7 +14,7 @@ function App() {
         <Routes>
           <Route path='/login' element={<Login />} />
           <Route element={<WrapNavbar />}>
-              <Route path='/' element={<Home />} />
+              <Route path='*' element={<Home />} />
               <Route path='/cart' element={<Cart />} />
           </Route>
         
