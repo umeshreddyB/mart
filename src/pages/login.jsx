@@ -50,22 +50,21 @@ const submit = () => {
 
 
     return (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-start justify-center pt-20 z-50">
-                <div className="bg-white shadow-lg p-6 rounded-lg flex flex-col items-center gap-6 ">
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-start justify-center pt-10 sm:pt-20 z-50">
+                <div className="bg-white shadow-lg p-4 sm:p-6 rounded-lg flex flex-col items-center gap-4 sm:gap-6 w-[90vw] max-w-xs sm:max-w-md">
                     <div>
-                        <img alt='logo' className='h-15' src="https://img.icons8.com/fluent-systems-regular/512w/40C057/shopping-cart.png" />
+                        <img alt='logo' className='h-12 sm:h-16' src="https://img.icons8.com/fluent-systems-regular/512w/40C057/shopping-cart.png" />
                     </div>
-                    <div>
-                    <label >Username</label><br/>
-                    <input type="text" placeholder="enter your username" value={username} onChange={(e)=> setUsername(e.target.value)} className="border rounded w-100 p-2"/>
+                    <div className="w-full">
+                    <label className="text-sm sm:text-base">Username</label><br/>
+                    <input type="text" placeholder="enter your username" value={username} onChange={(e)=> setUsername(e.target.value)} className="border rounded w-full p-2" />
                     </div>
-                    <div>
-                    <label>Password</label><br/>
-                    <input type="password" placeholder="enter your password" value={password} onChange={e => setPassword(e.target.value)} className="border rounded w-100 p-2"/>
+                    <div className="w-full">
+                    <label className="text-sm sm:text-base">Password</label><br/>
+                    <input type="password" placeholder="enter your password" value={password} onChange={e => setPassword(e.target.value)} className="border rounded w-full p-2" />
                     </div>
-                    <p className="text-red-500">{result}</p>
-                    <button className="mt-4 px-6 py-2 bg-blue-500 text-white rounded" value={password} onClick={submit}>Login</button>
-
+                    <p className="text-red-500 text-xs sm:text-sm">{result}</p>
+                    <button className="mt-2 sm:mt-4 px-4 sm:px-6 py-2 bg-blue-500 text-white rounded w-full" value={password} onClick={submit}>Login</button>
                 </div>
         </div>
     )

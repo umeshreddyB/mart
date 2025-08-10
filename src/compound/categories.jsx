@@ -11,8 +11,8 @@ function Categories ({props, callBack}) {
     };
 
     return (
-        <div className="flex flex-col min-w-60 text-center pt-6 p-5 gap-5 shadow-lg hover:cursor-pointer bg-white rounded-lg">
-            <p className="font-bold-lg text-3xl">Categories</p>
+        <div className="flex flex-col min-w-[150px] sm:min-w-[200px] md:min-w-60 text-center pt-4 sm:pt-6 p-3 sm:p-5 gap-3 sm:gap-5 shadow-lg hover:cursor-pointer bg-white rounded-lg">
+            <p className="font-bold-lg text-xl sm:text-2xl md:text-3xl">Categories</p>
             <nav
                 className={selectedCategory==="All" ? "bg-green-400 text-white p-2 rounded-md" : "p-2"}
                 onClick={() => handleCategoryClick("All")}
