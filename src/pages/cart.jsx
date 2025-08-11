@@ -1,21 +1,29 @@
 import { useCart } from "../contexts/CartContext";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import Cookies from 'js-cookie'
 
-function Cart({ isLoggedIn, onRequireLogin }) {
-  const { cartItems } = useCart();
+
+function Cart() {
+  const user = Cookies.get("jwt-token");
+  const navigate = useNavigate();
+  const { cartItems,makeEmpty } = useCart();
   const cartItemList = Object.values(cartItems);
   const isEmpty = cartItemList.length === 0;
   console.log(cartItemList);
   const handlePay = () => {
-    if (!isLoggedIn) {
-      onRequireLogin();
+    if (!user) {
+      navigate("/login")
+     
+
+  
       return;
     }
-    alert("Proceeding to payment...");
+    makeEmpty();
+    navigate("/payment") // Assuming you have a payment route set up
   };
 
   return (
-    <div className="pt-20">
+    <div >
       {isEmpty ? (
         <div className="flex flex-col items-center justify-center gap-4 min-h-screen">
           <img

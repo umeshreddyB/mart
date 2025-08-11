@@ -5,7 +5,9 @@ function WrapNavbar() {
   return (
     <>
       <Navbar />
+      <div className="pt-20">
       <Outlet />
+      </div>
     
     </>
   );

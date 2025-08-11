@@ -31,9 +31,12 @@ export function CartProvider({ children }) {
             };
         });
     };
+    const makeEmpty = () => {
+        setCartItems({});
+    }
 
     return (
-        <CartContext.Provider value={{ cartItems, addItem, removeItem }}>
+        <CartContext.Provider value={{ cartItems, addItem, removeItem , makeEmpty }}>
             {children}
         </CartContext.Provider>
     );
