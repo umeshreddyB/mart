@@ -6,7 +6,7 @@ import Cookies from 'js-cookie'
 function Cart() {
   const user = Cookies.get("jwt-token");
   const navigate = useNavigate();
-  const { cartItems,makeEmpty } = useCart();
+  const { cartItems,makeEmpty,addItem,removeItem } = useCart();
   const cartItemList = Object.values(cartItems);
   const isEmpty = cartItemList.length === 0;
   console.log(cartItemList);
@@ -59,9 +59,12 @@ function Cart() {
                         </span>
                       </div>
                   </div>
-                  <div className="flex flex-col mt-2 sm:mt-0">
-                    <h2 className="text-sm sm:text-base">Count: {item.count}</h2>
+                  <div className="flex items-center gap-3  ">
+                    <button onClick={() => removeItem(item)} className=" text-green text-2xl font-semibold hover:cursor-pointer hover:font-bold sm:px-4 py-1 sm:py-2 rounded">-</button>
+                    <h2 className="text-xl font-semibold sm:text-base">{item.count}</h2>
+                    <button onClick={() => addItem(item)} className="text-green text-2xl hover:cursor-pointer hover:font-bold sm:px-4 py-1 sm:py-2 rounded">+</button>
                   </div>
+                  
               </div>
             </div>
           ))}

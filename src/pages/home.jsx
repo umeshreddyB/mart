@@ -3,6 +3,7 @@ import Categories from "../compound/categories";
 import Products from "../compound/Products";
 import { Link, Navigate } from "react-router-dom";
 import { useCart } from "../contexts/CartContext";
+import SkeletonCard from "../styling/skelton";
 
 function Home() {
     const [products, setProducts] = useState([]);
@@ -47,12 +48,17 @@ function Home() {
     return (
         <div className="m-0">
             <div className="p-2 sm:p-5 pt-20 min-h-screen flex flex-col md:flex-row gap-3 md:gap-5 bg-gray-50 ">
-                <div className="mb-4 md:mb-0">
-                    <Categories props={products} callBack={callBack}/>
-                </div>
-                <div className="pt-4 sm:pt-6 flex-1 flex flex-col gap-4 sm:gap-8">
+                   <div className="mb-4 md:mb-0">
+                        <Categories props={products} callBack={callBack}/>
+                    </div>
+            
+               <div className="pt-4 sm:pt-6 flex-1 flex flex-col gap-4 sm:gap-8">
                     {isLoading ? (
-                        <div className="flex justify-center items-center h-full text-lg text-gray-500">Loading...</div>
+                            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                                {Array.from({ length: 8 }).map((_, index) => (
+                                <SkeletonCard key={index} />
+                                ))}
+                            </div>
                     ) : (filteredProducts.map(each => <Products pros={each} key={each.name} />)
                     )}
                 </div>

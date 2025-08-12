@@ -1,6 +1,9 @@
 import {Link} from "react-router-dom";
 import { CheckCircleIcon } from '@heroicons/react/24/solid';
 
+
+
+
 const Payment = () => {
     return (
 
